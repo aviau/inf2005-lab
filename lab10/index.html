@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Introduction au Javascript</title>
+        <script>
+
+            function changerPolice() {
+                var newFont = "Impact,Charcoal,sans-serif";
+                document.getElementById("p1").style.fontFamily = newFont;
+                document.getElementById("p2").style.fontFamily = newFont;
+                document.getElementById("p3").style.fontFamily = newFont;
+            }
+
+            function changerParagraphes() {
+                var paragraphes = document.getElementById("paragraphes").children;
+                var p1 = paragraphes[0];
+                var p3 = paragraphes[2];
+                p3.parentNode.insertBefore(p1, p3.nextSibling);
+            }
+
+            function changerVisibiliteTitre() {
+                var titre = document.getElementById("titre");
+                if (titre.style.display === "none") {
+                    titre.style.display = "block";
+                } else {
+                    titre.style.display = "none";
+                }
+            }
+
+            function titreRouge() {
+                var titre = document.getElementById("titre").style.color="red";
+            }
+
+            function loremIpsum() {
+                var p = document.createElement("p");
+                p.appendChild(document.createTextNode("HELLOOOO"));
+                document.getElementById("paragraphes").appendChild(p);
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1 id="titre" onClick="titreRouge()">Introduction au Javascript</h1>
+
+        <div id ="paragraphes">
+
+            <p id="p1">Premier paragraphe</p>
+
+            <p id="p2">Deuxième paragraphe</p>
+
+            <p id="p3">Troisième paragraphe</p>
+
+            <img src="https://www.google.ca/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                 onClick="loremIpsum()">
+
+        </div>
+
+        <input type="button"
+               value="changement de police"
+               onclick="changerPolice()">
+        <br>
+        <input type="button"
+               value="changer les paragraphes"
+               onclick="changerParagraphes()">
+        <br>
+        <input type="button"
+               value="changer visibilité titre"
+               onclick="changerVisibiliteTitre()">
+        <br>
+    </body>
+</html>
